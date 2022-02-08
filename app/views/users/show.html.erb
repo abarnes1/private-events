@@ -1,4 +1,8 @@
 <h1>User #show</h1>
-<p>
-  Id: <%= @user.id %>
-</p>
+<p>User: <%= @user.email %></p>
+
+
+<p>Events</p>
+<% @user.events.each do |event| %>
+  <p><%= event.name %></p>
+<% end %>
