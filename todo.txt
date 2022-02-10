@@ -1,0 +1,14 @@
+1. event_attendance#destroy
+  - can I get primary key? current solution is questionable
+
+2. database activity
+  - event#show takes 3 queries when host, 4 when guest
+    - can this be reduced?
+
+3. when/where to use forms vs. links
+  - event attendance is created with form but delete with link
+    - can a form be used for both? should a form be used for both?
+
+4. flash messages
+
+5. protect against failed create/update/destroy in controllers
