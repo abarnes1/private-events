@@ -1,9 +1,20 @@
 <p>
   <%= @event.name %> at <%= @event.location %> on <%= @event.date %>
 </p>
+
+<% if user_signed_in? %>
+  <% unless current_user == @event.creator %>
+    <% if current_user.attended_events.include?(@event) %>
+      <%= button_to 'Quit Attending', event_attendance_path, method: :delete, params: { attended_event_id: @event.id } %>
+    <% else %>
+      <%= render 'event_attendance/form', event_id: @event.id %>
+    <% end %>
+  <% end %>
+<% end %>
+
 <% if user_signed_in? && current_user == @event.creator %>
-<p>
-  <%= link_to 'Edit', edit_event_path(@event) %> 
-  <%= link_to 'Delete', event_path(@event), method: :delete, data: { confirm: "Are you sure?" } %>
-</p>
+  <p>
+    <%= link_to 'Edit', edit_event_path(@event) %> 
+    <%= link_to 'Delete', event_path(@event), method: :delete, data: { confirm: "Are you sure?" } %>
+  </p>
 <% end %>
