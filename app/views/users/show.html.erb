@@ -5,12 +5,12 @@
 
 <p>Future Events</p>
 <% @user.created_events.future.each do |event| %>
-  <p><%= link_to event.name, event %></p>
+  <p><%= link_to event.name, event %> - private: <%= event.private %></p> 
 <% end %>
 
 <p>Past Events</p>
 <% @user.created_events.past.each do |event| %>
-  <p><%= link_to event.name, event %></p>
+  <p><%= link_to event.name, event %> - private: <%= event.private %></p>
 <% end %>
 
 <hr>
@@ -19,10 +19,10 @@
 
 <p>Future Events</p>
 <% @user.attended_events.future.each do |event| %>
-  <p><%= link_to event.name, event %></p>
+  <p><%= link_to event.name, event %> - private: <%= event.private %></p>
 <% end %>
 
 <p>Past Events</p>
 <% @user.attended_events.past.each do |event| %>
-  <p><%= link_to event.name, event %></p>
+  <p><%= link_to event.name, event %> - private: <%= event.private %></p>
 <% end %>
