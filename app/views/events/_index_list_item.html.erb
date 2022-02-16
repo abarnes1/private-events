@@ -1,3 +1,5 @@
-<p>
-  <%= event.name %> on <%= event.date %> | <%= link_to 'Details', event_path(event) %>
-</p>
+<% unless event.private? && event.creator != current_user %>
+  <p>
+    <%= event.name %> on <%= event.date %> | <%= link_to 'Details', event_path(event) %>
+  </p>
+<% end %>
