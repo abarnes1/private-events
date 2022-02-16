@@ -7,8 +7,13 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 hosting_user = User.create(email: 'host@host.com', password: 'host123')
-birthday_party = hosting_user.created_events.create(name: 'birthday party', location: "tom's house", date: '2022/02/12')
-wedding = hosting_user.created_events.create(name: 'wedding', location: 'big gazebo', date: '2022/02/14')
+birthday_party = hosting_user.created_events.create(name: 'birthday party', location: "tom's house", date: (Date.today + 7))
+private_party = hosting_user.created_events.create(name: 'ice cream jamboree', location: 'the basement', date: (Date.today + 7), private: true)
+wedding = hosting_user.created_events.create(name: 'wedding', location: 'big gazebo', date: (Date.today + 30))
+old_party = hosting_user.created_events.create(name: "new year's eve", location: 'smith home', date: '2021/12/31')
 
-attending_user = User.create(email: 'guest@guest.com', password: 'guest123')
-birthday_party.attendees << attending_user
+invited_guest = User.create(email: 'guest@guest.com', password: 'guest123')
+attending_guest = User.create(email: 'attending@attending.com', password: 'attending123')
+
+birthday_party.event_attendance.build(attendee_id: invited_guest.id, invitation_status: 0).save
+birthday_party.event_attendance.build(attendee_id: attending_guest.id, invitation_status: 1).save
