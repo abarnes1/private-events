@@ -18,12 +18,12 @@ ActiveRecord::Schema.define(version: 2022_02_15_022349) do
   create_table "event_attendance", force: :cascade do |t|
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.bigint "attended_event_id", null: false
-    t.bigint "attendee_id", null: false
-    t.integer "invitation_status", null: false
-    t.index ["attended_event_id"], name: "index_event_attendance_on_attended_event_id"
-    t.index ["attendee_id"], name: "index_event_attendance_on_attendee_id"
-    t.index ["invitation_status"], name: "index_event_attendance_on_invitation_status"
+    t.bigint "event_id", null: false
+    t.bigint "user_id", null: false
+    t.integer "attendance_status", null: false
+    t.index ["attendance_status"], name: "index_event_attendance_on_attendance_status"
+    t.index ["event_id"], name: "index_event_attendance_on_event_id"
+    t.index ["user_id"], name: "index_event_attendance_on_user_id"
   end
 
   create_table "events", force: :cascade do |t|
@@ -49,7 +49,7 @@ ActiveRecord::Schema.define(version: 2022_02_15_022349) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "event_attendance", "events", column: "attended_event_id"
-  add_foreign_key "event_attendance", "users", column: "attendee_id"
+  add_foreign_key "event_attendance", "events"
+  add_foreign_key "event_attendance", "users"
   add_foreign_key "events", "users", column: "creator_id"
 end
