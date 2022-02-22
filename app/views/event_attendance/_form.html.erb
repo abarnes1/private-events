@@ -1,6 +1,6 @@
-<%= form_with model: @event_attendance, url: event_attendance_index_path do |form| %>
-  <%= form.hidden_field :attended_event_id, value: event_id %>
-  <%= form.hidden_field :attendee_id, value: current_user.id %>
-  <%= form.hidden_field :invitation_status, value: '1' %>
-  <%= form.submit 'Attend' %>
+<%= form_with model: event_attendance do |form| %>
+  <%= form.hidden_field :event_id, value: event_attendance.event_id %>
+  <%= form.hidden_field :user_id, value: event_attendance.user_id %>
+  <%= form.hidden_field :attendance_status, value: :attending %>
+  <%= form.submit event_attendance.form_submit_text %>
 <% end %>

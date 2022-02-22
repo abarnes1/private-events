@@ -21,6 +21,12 @@ class EventsController < ApplicationController
 
   def show
     @event = Event.find(params[:id])
+
+    if user_signed_in?
+      @event_attendance = EventAttendance.find_or_initialize_by(user_id: current_user.id, event_id: @event.id)
+    end
+
+    @attendees = @event.attendees
   end
 
   def edit
@@ -51,5 +57,13 @@ class EventsController < ApplicationController
 
   def event_params
     params.require(:event).permit(:name, :location, :date, :private)
+  end
+
+  def attending_user(email)
+    if email
+      User.find_by_email(email)
+    else
+      current_user
+    end
   end
 end

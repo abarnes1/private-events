@@ -17,6 +17,11 @@
 
 <h2>My Event Attendance</h2>
 
+<p>Pending Invitations: </p>
+<% @user.invitations.includes(:event).each do |invitation| %>
+  <p><%= link_to invitation.event.name, invitation.event %> - private: <%= invitation.event.private %></p>
+<% end %>
+
 <p>Future Events</p>
 <% @user.attended_events.future.each do |event| %>
   <p><%= link_to event.name, event %> - private: <%= event.private %></p>

@@ -12,4 +12,12 @@ class User < ApplicationRecord
 
   has_many :attended_events, -> { where(event_attendance: { attendance_status: :attending }) },
            through: :event_attendance, source: :event
+
+  def attending?(event)
+    attended_events.include?(event)
+  end
+
+  def invited?(event)
+    invitations.include?(event.id)
+  end
 end

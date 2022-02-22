@@ -1,36 +1,54 @@
 class EventAttendanceController < ApplicationController
   before_action :authenticate_user!, except: [:index]
 
-  def create
-    @event_attendance = current_user.event_attendance.build(
-      attended_event_id: params[:attended_event_id],
-      invitation_status: params[:invitation_status].to_i
-    )
+  def show
+    'show?'
+  end
 
+  def create
+    # debugger
+    user = attending_user(params[:email])
+
+    if user.nil?
+      flash[:alert] = 'User not found'
+      # render partial: 'invite_by_email_form', locals: { event_attendance: EventAttendance.new }
+      redirect_to event_path(params[:event_attendance][:event_id])
+      return
+    end
+
+    @event_attendance = user.event_attendance.build(event_attendance_params)
     @event_attendance.save
 
-    redirect_to event_path(@event_attendance.attended_event_id)
+    redirect_to event_path(@event_attendance.event_id)
+  end
+
+  def update
+    @event_attendance = EventAttendance.find(params[:id])
+    @event_attendance.update(event_attendance_params)
+
+    event_id = @event_attendance.event_id
+    redirect_to event_path(event_id)
   end
 
   def destroy
-    @event_attendance = if params[:attended_event_id]
-                          EventAttendance.where(
-                            attended_event_id: params[:attended_event_id],
-                            attendee_id: params[:attendee_id]
-                          ).first
-                        else
-                          EventAttendance.find(params[:id])
-                        end
+    @event_attendance = EventAttendance.find(params[:id])
+    event_id = @event_attendance.event_id
 
-    event_id = @event_attendance.attended_event_id
     @event_attendance.destroy
-
     redirect_to event_path(event_id)
   end
 
   private
 
   def event_attendance_params
-    require(:event_attendance).permit(:attended_event_id, :attendee_id, :invitation_status)
+    params.require(:event_attendance).permit(:event_id, :user_id, :attendance_status)
+  end
+
+  def attending_user(email)
+    if email
+      User.find_by_email(email)
+    else
+      current_user
+    end
   end
 end
