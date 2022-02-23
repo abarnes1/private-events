@@ -1,0 +1,4 @@
+  <p>Pending Invitations: </p>
+  <% invitations.each do |invitation| %>
+    <p><%= link_to invitation.event.name, invitation.event %><%= ' (private)' if invitation.event.private %></p>
+  <% end %>

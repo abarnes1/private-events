@@ -6,12 +6,12 @@
 
 <hr>
 
-<h2>My Event Attendance</h2>
+<h2>Pending Invitations: </h2>
+<%= render 'user_invitation_list', invitations: @user.invitations.includes(:event) %>
 
-<p>Pending Invitations: </p>
-<% @user.invitations.includes(:event).each do |invitation| %>
-  <p><%= link_to invitation.event.name, invitation.event %><%= ' (private)' if invitation.event.private %></p>
-<% end %>
+<hr> 
+
+<h2>My Event Attendance</h2>
 
 <%= render 'user_attendance_list', events: @user.attended_events.future, title: 'Future Events' %>
 <%= render 'user_attendance_list', events: @user.attended_events.past, title: 'Past Events' %>
