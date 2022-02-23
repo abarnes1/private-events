@@ -1,6 +1,6 @@
 <p><%= @event.name %> at <%= @event.location %> on <%= @event.date %></p>
 
-<p><%= render 'manage_own_attendance', event_attendance: @user_event_attendance %></p>
+<p><%= render 'manage_own_attendance', event_attendance: @user_event_attendance, creator: @event.creator %></p>
 
 <% if current_user == @event.creator %>
   <p><%= render 'event_management_links', event: @event %></p>
@@ -8,5 +8,4 @@
 <% end %>
 
 <%= render 'attendees_list', event: @event  %>
-
 <%= render 'invitees_list', event: @event  %>
