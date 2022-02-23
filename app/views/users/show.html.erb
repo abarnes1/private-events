@@ -10,15 +10,8 @@
 
 <p>Pending Invitations: </p>
 <% @user.invitations.includes(:event).each do |invitation| %>
-  <p><%= link_to invitation.event.name, invitation.event %> - private: <%= invitation.event.private %></p>
+  <p><%= link_to invitation.event.name, invitation.event %><%= ' (private)' if invitation.event.private %></p>
 <% end %>
 
-<p>Future Events</p>
-<% @user.attended_events.future.each do |event| %>
-  <p><%= link_to event.name, event %> - private: <%= event.private %></p>
-<% end %>
-
-<p>Past Events</p>
-<% @user.attended_events.past.each do |event| %>
-  <p><%= link_to event.name, event %> - private: <%= event.private %></p>
-<% end %>
+<%= render 'user_attendance_list', events: @user.attended_events.future, title: 'Future Events' %>
+<%= render 'user_attendance_list', events: @user.attended_events.past, title: 'Past Events' %>
