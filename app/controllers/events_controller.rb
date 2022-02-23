@@ -23,9 +23,10 @@ class EventsController < ApplicationController
     @event = Event.find(params[:id])
 
     if user_signed_in?
-      @event_attendance = EventAttendance.find_or_initialize_by(user_id: current_user.id, event_id: @event.id)
+      @user_event_attendance = EventAttendance.find_or_initialize_by(user_id: current_user.id, event_id: @event.id)
     end
 
+    @email_invite_event_attendance = @event.event_attendance.build
     @attendees = @event.attendees
   end
 
