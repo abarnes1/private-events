@@ -1,6 +1,5 @@
 <h2>My Events</h2>
 <%= link_to "Create Event", new_event_path %>
-
 <%= render 'user_event_list', events: @user.created_events.future, title: 'Future Events' %>
 <%= render 'user_event_list', events: @user.created_events.past, title: 'Past Events' %>
 
@@ -12,6 +11,5 @@
 <hr> 
 
 <h2>My Event Attendance</h2>
-
 <%= render 'user_attendance_list', events: @user.attended_events.future, title: 'Future Events' %>
 <%= render 'user_attendance_list', events: @user.attended_events.past, title: 'Past Events' %>
