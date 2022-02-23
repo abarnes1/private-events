@@ -15,7 +15,7 @@ old_party = hosting_user.created_events.create(name: "new year's eve", location:
 invited_guest = User.create(email: 'guest@guest.com', password: 'guest123')
 attending_guest = User.create(email: 'attending@attending.com', password: 'attending123')
 
-birthday_party.event_attendance.build(user_id: invited_guest.id, attendance_status: 0).save
+birthday_party.event_attendance.build(user_id: invited_guest.id, attendance_status: :invited).save
 
-birthday_party.event_attendance.build(user_id: attending_guest.id, attendance_status: 1).save
-wedding.event_attendance.build(user_id: attending_guest.id, attendance_status: 0).save
+birthday_party.event_attendance.build(user_id: attending_guest.id, attendance_status: :attending).save
+wedding.event_attendance.build(user_id: attending_guest.id, attendance_status: :invited).save
