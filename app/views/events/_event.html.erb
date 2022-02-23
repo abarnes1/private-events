@@ -1,36 +1,12 @@
-<p>
-  <%= @event.name %> at <%= @event.location %> on <%= @event.date %>
-</p>
+<p><%= @event.name %> at <%= @event.location %> on <%= @event.date %></p>
+
+<p><%= render 'manage_own_attendance', event_attendance: @user_event_attendance %></p>
 
 <% if current_user == @event.creator %>
-  <p>
-    <%= link_to 'Edit', edit_event_path(@event) %> 
-    <%= link_to 'Delete', event_path(@event), method: :delete, data: { confirm: "Are you sure?" } %>
-  </p>
-
-  <p>
-    Invite by email: <%= render 'event_attendance/invite_by_email_form', event_id: @event.id  %>
-  </p>
+  <p><%= render 'event_management_links', event: @event %></p>
+  <p><%= render 'event_attendance/invite_by_email_form', event_attendance: @email_invite_event_attendance  %></p>
 <% end %>
 
-Attendees:
+<%= render 'attendees_list', event: @event  %>
 
-  <% @event.attendees.each do |attendee| %>
-  <p>
-   <%= attendee.email %> 
-   <% if @event.creator == current_user %>
-      <%= link_to 'Remove', event_attendance_path(attendee), method: :delete, data: { confirm: "Really remove this user?" } %>
-    <%end%>
-  </p>
-  <% end %>
-
-<% if @event.creator == current_user %>
-
-Invited:
-  <% @event.invitations.includes(:user).each do |invitation| %>
-    <p>
-      <%= invitation.user.email %> 
-      <%= link_to 'Cancel', event_attendance_path(invitation), method: :delete, data: { confirm: "Really remove this invitation?" } %>
-    </p>
-  <% end %>
-<% end %>
+<%= render 'invitees_list', event: @event  %>

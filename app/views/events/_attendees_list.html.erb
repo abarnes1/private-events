@@ -1,0 +1,11 @@
+Attending:
+<% event.attendees.each do |attendee| %>
+  <p>
+  <%= attendee.email %> 
+  <% if event.creator == current_user %>
+      <% if attendee != current_user %>
+        <%= link_to 'Remove', event_attendance_path(attendee), method: :delete, data: { confirm: "Really remove this user?" } %>
+      <%end%>
+    <%end%>
+  </p>
+<% end %>

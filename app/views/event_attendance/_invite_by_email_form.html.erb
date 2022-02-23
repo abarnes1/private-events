@@ -1,5 +1,6 @@
-<%= form_with model: @event_attendance, url: event_attendance_index_path do |form| %>
-  <%= form.hidden_field :event_id, value: event_id %>
+Invite by Email:
+<%= form_with model: event_attendance, url: event_attendance_index_path do |form| %>
+  <%= form.hidden_field :event_id, value: event_attendance.event_id %>
   <%= form.hidden_field :attendance_status, value: :invited %>
   <%= label_tag :email %>
   <%= text_field_tag :email %>
