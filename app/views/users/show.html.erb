@@ -1,17 +1,8 @@
-<p>User: <%= @user.email %></p>
-
 <h2>My Events</h2>
 <%= link_to "Create Event", new_event_path %>
 
-<p>Future Events</p>
-<% @user.created_events.future.each do |event| %>
-  <p><%= link_to event.name, event %> - private: <%= event.private %></p> 
-<% end %>
-
-<p>Past Events</p>
-<% @user.created_events.past.each do |event| %>
-  <p><%= link_to event.name, event %> - private: <%= event.private %></p>
-<% end %>
+<%= render 'user_event_list', events: @user.created_events.future, title: 'Future Events' %>
+<%= render 'user_event_list', events: @user.created_events.past, title: 'Past Events' %>
 
 <hr>
 
