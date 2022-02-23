@@ -1,17 +1,11 @@
 class EventAttendanceController < ApplicationController
   before_action :authenticate_user!, except: [:index]
 
-  def show
-    'show?'
-  end
-
   def create
-    # debugger
     user = attending_user(params[:email])
 
     if user.nil?
       flash[:alert] = 'User not found'
-      # render partial: 'invite_by_email_form', locals: { event_attendance: EventAttendance.new }
       redirect_to event_path(params[:event_attendance][:event_id])
       return
     end
