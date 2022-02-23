@@ -1,9 +1,9 @@
 <% if user_signed_in? && creator.id != current_user.id %>
   <% if event_attendance.attending? %>
-      <%= button_to event_attendance.form_submit_text, event_attendance, method: :delete %>
-    <% else %>
-      <%= render 'event_attendance/form', event_attendance: event_attendance %>
-    <% end %>
+    <%= button_to event_attendance.form_submit_text, event_attendance, method: :delete %>
+  <% else %>
+    <%= render 'event_attendance/form', event_attendance: event_attendance %>
+  <% end %>
 <% else %>
   Log in or sign up to attend!
 <% end %>
