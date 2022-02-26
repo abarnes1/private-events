@@ -10,6 +10,12 @@ class EventAttendanceController < ApplicationController
       return
     end
 
+    if EventAttendance.exists?(event_id: params[:event_attendance][:event_id], user_id: user.id)
+      flash[:alert] = 'User is already invited or attending'
+      redirect_to event_path(params[:event_attendance][:event_id])
+      return
+    end
+
     @event_attendance = user.event_attendance.build(event_attendance_params)
     @event_attendance.save
 
