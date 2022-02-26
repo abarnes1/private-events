@@ -5,15 +5,4 @@ class EventAttendance < ApplicationRecord
 
   belongs_to :user
   belongs_to :event
-
-  def form_submit_text
-    case attendance_status
-    when :invited.to_s
-      'Accept Invitation'
-    when :attending.to_s
-      'Quit Attending'
-    else
-      'Attend'
-    end
-  end
 end
