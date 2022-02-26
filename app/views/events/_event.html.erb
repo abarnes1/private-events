@@ -4,7 +4,10 @@
 
 <% if current_user == @event.creator %>
   <p><%= render 'event_management_links', event: @event %></p>
-  <p><%= render 'event_attendance/invite_by_email_form', event_attendance: @email_invite_event_attendance  %></p>
+
+  <% if @event.upcoming? %>
+    <p><%= render 'event_attendance/invite_by_email_form', event_attendance: @email_invite_event_attendance  %></p>
+  <% end %>
 <% end %>
 
 <%= render 'attendees_list', event: @event  %>

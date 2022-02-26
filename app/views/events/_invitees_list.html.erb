@@ -3,7 +3,9 @@
     <% event.invitations.includes(:user).each do |invitation| %>
       <p>
         <%= invitation.user.email %> 
-        <%= link_to 'Cancel', event_attendance_path(invitation), method: :delete, data: { confirm: "Really remove this invitation?" } %>
+        <% if event.upcoming? %>
+          <%= link_to 'Cancel', event_attendance_path(invitation), method: :delete, data: { confirm: "Really remove this invitation?" } %>
+        <% end %>
       </p>
     <% end %>
   <% end %>
