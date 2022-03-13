@@ -11,23 +11,12 @@
   </head>
 
   <body>
-  		<nav class="nav" tabindex="-1" onclick="this.focus()">
-        <div class="container">
-          <%= link_to 'Event Manager', root_path %>
-                    
-          <% if user_signed_in? %>
-            <%= link_to "Logout", destroy_user_session_path, method: :delete %>
-            <%= link_to "My Events", user_path(current_user) %>
-            - <%= current_user.email %>
-          <% else %>
-            <%= link_to 'Log In', new_user_session_path %>
-          <% end %>
-        </div>
-		  </nav>
+    <%= render partial: "shared/navbar" %>
 
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
     
     <%= yield %>
+    
   </body>
 </html>
