@@ -13,11 +13,11 @@
  *= require_tree .
  *= require_self
  */
- * {
-   margin: 0px;
-   padding: 0px;
-   font-family: 'Helvetica', sans-serif;
- }
+* {
+  margin: 0px;
+  padding: 0px;
+  font-family: 'Helvetica', sans-serif;
+}
 
 nav {
   padding: 12px 24px;
@@ -49,4 +49,20 @@ nav .right {
   align-items: center;
   gap: 12px;
   list-style: none;
+}
+
+.flash-message {
+  padding: 12px;
+  text-align: center;
+  color: whitesmoke;
+  font-weight: bold;
+}
+
+.notice {
+  background-color: green;
+  
+}
+
+.alert {
+  background-color: red;
 }
