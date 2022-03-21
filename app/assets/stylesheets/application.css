@@ -17,6 +17,13 @@
   margin: 0px;
   padding: 0px;
   font-family: 'Helvetica', sans-serif;
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  height: 100vh;
+  flex-direction: column;
 }
 
 nav {
@@ -60,9 +67,19 @@ nav .right {
 
 .notice {
   background-color: green;
-  
 }
 
 .alert {
   background-color: red;
+}
+
+.content-container {
+  padding: 12px 24px;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.footer {
+  padding: 12px 24px;
 }

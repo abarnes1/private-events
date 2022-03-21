@@ -1,6 +1,6 @@
 <h1>Events List</h1>
-
-<%# <%= render partial: 'event', collection: @events %>
-<%= render partial: 'index_list_item', collection: @events, as: :event %>
-
 <%= link_to 'Create Event', new_event_path %>
+
+<div class="event-index-container">
+  <%= render partial: 'index_event', collection: @events, as: :event %>
+</div>
