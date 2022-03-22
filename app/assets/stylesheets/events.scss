@@ -10,8 +10,43 @@
   border: 2px solid purple;
 }
 
+.event-index-container a,
+.event-index-container a:visited {
+  color: black;
+  text-decoration: none;
+}
+
 .event-card {
-  border: 1px solid red;
   display: flex;
   flex-direction: column;
+  max-width: 275px;
+  min-width: 100px;
+  border: 3px solid darkblue;
+  border-radius: 5px;
+}
+
+.event-card-header {
+  padding: 8px;
+  background-color: darkblue;
+  color: whitesmoke;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.event-card-location {
+  color: darkblue;
+  font-weight: bold;
+  font-size: 18px;
+  padding: 4px 8px;
+}
+
+.event-card-date {
+  color: darkblue;
+  font-weight: bold;
+  font-size: 18px;
+  padding: 4px 8px;
+}
+
+.event-card-description {
+  padding: 4px 8px;
 }
