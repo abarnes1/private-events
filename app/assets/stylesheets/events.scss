@@ -2,15 +2,15 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
-.event-index-container {
+.event-card-container {
   justify-self: center;
   display: flex;
   flex-wrap: wrap;
   gap: 20px;
 }
 
-.event-index-container a,
-.event-index-container a:visited {
+.event-card-container a,
+.event-card-container a:visited {
   color: black;
   text-decoration: none;
 }

@@ -1,7 +1,7 @@
 class Event < ApplicationRecord
   validate :event_date_cannot_be_in_past
   validates :date, presence: true
-  
+
   validates :name, length: { in: 5..100 }, presence: true
   validates :location, length: { in: 5..100 }, presence: true
 
@@ -16,6 +16,11 @@ class Event < ApplicationRecord
 
   scope :future, -> { where('date >= ?', Date.today) }
   scope :past, -> { where('date < ?', Date.today) }
+
+  # scopes named public and private not viable as they
+  # conflict with ActiveRecord method names
+  scope :public_visible, -> { where(private: false) }
+  scope :private_visible, -> { where(private: true) }
 
   def event_date_cannot_be_in_past
     return true if date.nil?
