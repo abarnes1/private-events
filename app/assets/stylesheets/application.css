@@ -116,6 +116,10 @@ input {
   width: 100%;
 }
 
+form {
+  max-width: 250px;
+}
+
 /* Changes default Rails behavior on validation error */
 .field_with_errors { 
   display: inline 

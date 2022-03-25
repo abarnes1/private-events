@@ -7,14 +7,3 @@
   display: flex;
   flex-direction: column;
 }
-
-.col-container-centered {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.centered {
-  display: flex;
-  justify-content: center;
-}
