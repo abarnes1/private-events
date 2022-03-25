@@ -8,20 +8,22 @@
 <%= form_with model: @event do |form| %>
   <%= form.label :name %>
   <br>
-  <%= form.text_field :name %>
+  <%= form.text_field :name, class: 'stackable-sm full-width' %>
 
   <%= form.label :location %>
   <br>
-  <%= form.text_field :location %>
+  <%= form.text_field :location, class: 'stackable-sm full-width' %>
 
   <%= form.label :date %>
   <br>
-  <%= form.date_field :date, class: 'full-width' %>
+  <%= form.date_field :date , class: 'stackable-sm full-width'%>
 
-  <%= form.label :private, 'Public' %>
-  <%= form.radio_button :private, false %>
-  <%= form.label :private, 'Private' %>
-  <%= form.radio_button :private, true %>
+  <div class='stackable-sm'>
+    <%= form.label :private, 'Public' %>
+    <%= form.radio_button :private, false %>
+    <%= form.label :private, 'Private' %>
+    <%= form.radio_button :private, true %>
+  </div>
   
-  <%= form.button "Create", type: "submit", class: "centered" %>
+  <%= form.button "Create", type: "submit" %>
 <% end %>

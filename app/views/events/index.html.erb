@@ -1,12 +1,8 @@
-<div class="row-content">
-  <h1>Public Event List</h1>
-</div>
+<h1 class="stackable-md">Public Event List</h1>
 
-<div class="row-container">
-  <%= link_to new_event_path do %>
-    <%= button_tag 'Create New Event', type: 'button' %>
-  <% end %>
-</div>
+<%= link_to new_event_path do %>
+  <%= button_tag 'Create New Event', type: 'button', class: 'stackable-md' %>
+<% end %>
 
 <div class="event-index-container">
   <%= render partial: 'index_event', collection: @events, as: :event %>
