@@ -1,8 +1,12 @@
-<h1>Public Event List</h1>
+<div class="row-content">
+  <h1>Public Event List</h1>
+</div>
 
-<%= link_to new_event_path do %>
-  <%= button_tag 'Create New Event', type: 'button' %>
-<% end %>
+<div class="row-container">
+  <%= link_to new_event_path do %>
+    <%= button_tag 'Create New Event', type: 'button' %>
+  <% end %>
+</div>
 
 <div class="event-index-container">
   <%= render partial: 'index_event', collection: @events, as: :event %>
