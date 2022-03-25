@@ -101,6 +101,13 @@ button {
   padding: 8px 12px;
 }
 
+input[type=submit] {
+  border: 2px solid darkblue;
+  border-radius: 5px;
+  font-size: 18px;
+  padding: 8px 12px;
+}
+
 label {
   font-size: 20px;
   width: 100px;
@@ -109,18 +116,8 @@ label {
 
 input {
   font-size: 18px;
-  margin-bottom: 8px;
-}
-
-.full-width {
-  width: 100%;
 }
 
 form {
   max-width: 250px;
-}
-
-/* Changes default Rails behavior on validation error */
-.field_with_errors { 
-  display: inline 
 }
