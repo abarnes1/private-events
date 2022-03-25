@@ -6,30 +6,22 @@
 <% end %>
 
 <%= form_with model: @event do |form| %>
-  <div class="field">
-    <%= form.label :name %>
-    <br>
-    <%= form.text_field :name %>
-  </div>
+  <%= form.label :name %>
+  <br>
+  <%= form.text_field :name %>
 
-  <div class="field">
-    <%= form.label :location %>
-    <br>
-    <%= form.text_field :location %>
-  </div>
+  <%= form.label :location %>
+  <br>
+  <%= form.text_field :location %>
 
-  <div class="field">
-    <%= form.label :date %>
-    <br>
-    <%= form.date_field :date, class: 'full-width' %>
-  </div>
+  <%= form.label :date %>
+  <br>
+  <%= form.date_field :date, class: 'full-width' %>
 
-  <div class="field">
-    <%= form.label :private, 'Public' %>
-    <%= form.radio_button :private, false %>
-    <%= form.label :private, 'Private' %>
-    <%= form.radio_button :private, true %>
-  </div>
+  <%= form.label :private, 'Public' %>
+  <%= form.radio_button :private, false %>
+  <%= form.label :private, 'Private' %>
+  <%= form.radio_button :private, true %>
   
   <%= form.button "Create", type: "submit", class: "centered" %>
 <% end %>
