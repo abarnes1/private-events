@@ -1,5 +1,9 @@
 <h2 class="stackable-md"><%= title %></h2>
 
 <div class="event-card-container stackable-md">
-  <%= render partial: 'events/event_card', collection: events, as: :event %>
+  <% if events.count > 0 %>
+    <%= render partial: 'events/event_card', collection: events, as: :event %>
+  <% else %>
+   <p>No events to display.</p>
+  <% end %>
 </div>

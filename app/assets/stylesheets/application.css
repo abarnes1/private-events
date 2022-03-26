@@ -121,3 +121,8 @@ input {
 form {
   max-width: 250px;
 }
+
+textarea {
+  resize: none;
+  font-size: 16px;
+}

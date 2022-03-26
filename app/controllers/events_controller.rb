@@ -57,7 +57,7 @@ class EventsController < ApplicationController
   private
 
   def event_params
-    params.require(:event).permit(:name, :location, :date, :private)
+    params.require(:event).permit(:name, :location, :date, :private, :description)
   end
 
   def attending_user(email)
