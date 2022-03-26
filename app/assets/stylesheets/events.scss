@@ -5,6 +5,7 @@
 .event-card-container {
   justify-self: center;
   display: flex;
+  align-items: flex-start;
   flex-wrap: wrap;
   gap: 20px;
 }
