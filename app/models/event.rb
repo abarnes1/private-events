@@ -1,6 +1,6 @@
 class Event < ApplicationRecord
   validate :event_date_cannot_be_in_past
-  validates :date, presence: true
+  validates :date, :description, presence: true
 
   validates :name, length: { in: 5..100 }, presence: true
   validates :location, length: { in: 5..100 }, presence: true
