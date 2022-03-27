@@ -1,12 +1,21 @@
-<p><%= event.name %> at <%= event.location %> on <%= event.date %></p>
+<h3>Name</h3>
+<div class="stackable-sm"><%= event.name %></div>
+<h3>Host</h3>
+<div class="stackable-sm"><%= event.creator.email %></div>
+<h3>Location</h3>
+<div class="stackable-sm"><%= event.location %></div>
+<h3>Date</h3>
+<div class="stackable-sm"><%= event.date %></div>
+<h3>Description</h3>
+<div class="stackable-sm"><%= event.description %></div>
 
-<p><%= render 'manage_own_attendance', event_attendance: @user_event_attendance, creator: event.creator %></p>
+<div class="stackable-sm"><%= render 'manage_own_attendance', event_attendance: @user_event_attendance, creator: event.creator %></div>
 
 <% if current_user == @event.creator %>
-  <p><%= render 'event_management_links', event: @event %></p>
+  <div class="stackable-sm"><%= render 'event_management_links', event: @event %></div>
 
   <% if event.upcoming? %>
-    <p><%= render 'event_attendance/invite_by_email_form', event_attendance: @email_invite_event_attendance  %></p>
+    <div class="stackable-sm"><%= render 'event_attendance/invite_by_email_form', event_attendance: @email_invite_event_attendance  %></div>
   <% end %>
 <% end %>
 
