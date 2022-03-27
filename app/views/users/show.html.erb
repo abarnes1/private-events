@@ -1,16 +1,11 @@
 <h1 class="stackable-md">My Events</h1>
 
 <%= link_to new_event_path do %>
-  <%= button_tag 'Create New Event', type: 'button', class: 'stackable-md' %>
+  <%= button_tag 'Create New Event', type: 'button', class: 'stackable-md bordered' %>
 <% end %>
 
 <%= render partial: 'events/event_card_list', locals: { title: 'Upcoming Events', events: @user.created_events.future } %>
 <%= render partial: 'events/event_card_list', locals: { title: 'Past Events', events: @user.created_events.past } %>
-
-<% if false %>
-  <%= render 'user_event_list', events: @user.created_events.future, title: 'Future Events' %>
-  <%= render 'user_event_list', events: @user.created_events.past, title: 'Past Events' %>
-<% end %>
 
 <hr>
 
