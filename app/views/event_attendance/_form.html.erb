@@ -2,5 +2,5 @@
   <%= form.hidden_field :event_id, value: event_attendance.event_id %>
   <%= form.hidden_field :user_id, value: event_attendance.user_id %>
   <%= form.hidden_field :attendance_status, value: :attending %>
-  <%= form.submit form_submit_text(event_attendance) %>
+  <%= form.submit form_submit_text(event_attendance), class: 'button-sm' %>
 <% end %>
