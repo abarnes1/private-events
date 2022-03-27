@@ -1,11 +1,19 @@
-  <% if event.creator == current_user %>
-  Invitations:
-    <% event.invitations.includes(:user).each do |invitation| %>
-      <p>
-        <%= invitation.user.email %> 
-        <% if event.upcoming? %>
-          <%= link_to 'Cancel', event_attendance_path(invitation), method: :delete, data: { confirm: "Really remove this invitation?" } %>
+<% if event.creator == current_user %>
+  <h3>Pending Invitations</h3>
+    <% if event.invitations.count > 0 %>
+      <ul>
+        <% event.invitations.includes(:user).each do |invitation| %>
+          <li class="stackable-sm">
+            <%= invitation.user.email %> 
+
+            <% if event.upcoming? %>
+              <%= link_to 'Cancel', event_attendance_path(invitation), method: :delete, 
+                data: { confirm: "Really remove this invitation?" }, class: 'button-xsm bordered' %>
+            <% end %>
+          </div>
         <% end %>
-      </p>
+      </ul>
+    <% else %>
+      No pending invitations
     <% end %>
-  <% end %>
+<% end %>

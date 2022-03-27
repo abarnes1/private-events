@@ -1,11 +1,20 @@
-Attending:
-<% event.attendees.each do |attendee| %>
-  <p>
-  <%= attendee.email %> 
-  <% if event.creator == current_user %>
-      <% if attendee != current_user %>
-        <%= link_to 'Remove', event_attendance_path(attendee), method: :delete, data: { confirm: "Really remove this user?" } %>
-      <%end%>
-    <%end%>
-  </p>
+<h3>Attendees</h3>
+
+<% if event.attendees.count > 0 %>
+  <ul>
+    <% event.attendees.each do |attendee| %>
+      <li class="stackable-sm">
+        <%= attendee.email %> 
+
+        <% if event.creator == current_user %>
+          <% if attendee != current_user %>
+            <%= link_to 'Remove', event_attendance_path(attendee), method: :delete, 
+              data: { confirm: "Really remove this user?" }, class: 'button-xsm bordered' %>
+          <%end%>
+        <%end%>
+      </li>
+    <% end %>  
+  </ul>
+<% else %>
+  No one is attending :(
 <% end %>
