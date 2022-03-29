@@ -1,0 +1,9 @@
+<h4 class="stackable-sm"><%= title %></h2>
+
+<div class="event-card-container stackable-md">
+  <% if events.count > 0 %>
+    <%= render partial: 'events/event_card_mini', collection: events, as: :event %>
+  <% else %>
+   <p>No events to display.</p>
+  <% end %>
+</div>
