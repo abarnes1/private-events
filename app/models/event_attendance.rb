@@ -5,4 +5,6 @@ class EventAttendance < ApplicationRecord
 
   belongs_to :user
   belongs_to :event
+
+  scope :pending_for_upcoming_events, -> { invited.joins(:event).merge(Event.future) }
 end
