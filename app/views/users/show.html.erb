@@ -7,13 +7,13 @@
 <%= render partial: 'events/event_card_list', locals: { title: 'Upcoming Events', events: @user.created_events.future } %>
 <%= render partial: 'events/event_card_list', locals: { title: 'Past Events', events: @user.created_events.past } %>
 
-<hr>
+<hr class='stackable-sm'>
 
 <h2>Pending Invitations: </h2>
 <%= render 'user_invitation_list', invitations: @user.invitations.includes(:event) %>
 
-<hr> 
+<hr class='stackable-sm'>
 
 <h2>My Event Attendance</h2>
-<%= render 'user_attendance_list', events: @user.attended_events.future, title: 'Future Events' %>
-<%= render 'user_attendance_list', events: @user.attended_events.past, title: 'Past Events' %>
+<%= render partial: 'events/event_card_mini_list', locals: { title: 'Upcoming Events', events: @user.attended_events.future } %>
+<%= render partial: 'events/event_card_mini_list', locals: { title: 'Past Events', events: @user.attended_events.past } %>
