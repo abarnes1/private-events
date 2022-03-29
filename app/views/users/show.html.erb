@@ -9,8 +9,8 @@
 
 <hr class='stackable-sm'>
 
-<h2>Pending Invitations: </h2>
-<%= render 'user_invitation_list', invitations: @user.invitations.includes(:event) %>
+<h2>Pending Invitations</h2>
+<%= render 'user_invitation_list', invitations: @user.invitations.pending_for_upcoming_events %>
 
 <hr class='stackable-sm'>
 
