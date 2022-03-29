@@ -9,11 +9,10 @@
 
 <hr class='stackable-sm'>
 
-<h2>Pending Invitations</h2>
-<%= render 'user_invitation_list', invitations: @user.invitations.pending_for_upcoming_events %>
+<%= render 'user_invitation_list', invitations: @user.invitations.pending_for_upcoming_events, title: 'Pending Invitations' %>
 
 <hr class='stackable-sm'>
 
-<h2>My Event Attendance</h2>
+<h2 class='stackable-md'>My Event Attendance</h2>
 <%= render partial: 'events/event_card_mini_list', locals: { title: 'Upcoming Events', events: @user.attended_events.future } %>
 <%= render partial: 'events/event_card_mini_list', locals: { title: 'Past Events', events: @user.attended_events.past } %>
