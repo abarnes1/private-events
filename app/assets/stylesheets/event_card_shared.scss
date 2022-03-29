@@ -1,0 +1,13 @@
+.event-card-container {
+  justify-self: center;
+  display: flex;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.event-card-container a,
+.event-card-container a:visited {
+  color: black;
+  text-decoration: none;
+}

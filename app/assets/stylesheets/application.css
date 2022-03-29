@@ -150,3 +150,7 @@ textarea {
 li {
   list-style: none;
 }
+
+hr {
+  border: 2px solid darkblue;
+}
