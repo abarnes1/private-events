@@ -1,14 +1,14 @@
 <div class="event-card-sm bordered">
   <%= link_to event_path(event) do %>
-    <div class="event-card-sm-header">
+    <div class="event-card-primary-field">
       <%= event.name %><%= ' - (private)' if event.private? %>
     </div>
 
-    <div class="event-card-date">
+    <div class="event-card-primary-field">
       <%= event.date %>
     </div>
 
-    <div class="event-card-location">
+    <div class="event-card-primary-field">
       <%= event.location %>
     </div>
   <% end %>
