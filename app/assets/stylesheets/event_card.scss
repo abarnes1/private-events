@@ -14,12 +14,16 @@
   flex-direction: column;
   max-width: 275px;
   min-width: 100px;
-  border: 3px solid darkblue;
   border-radius: 5px;
 }
 
+.event-card,
+.event-card-sm {
+  background-color: var(--primary-light-color);
+}
+
 .event-card-primary-field {
-  color: darkblue;
+  color: var(--primary-dark-color);
   font-weight: bold;
   font-size: 18px;
   padding: 4px 8px;
@@ -33,15 +37,9 @@ form.event-form {
   max-width: 350px;
 }
 
-.event-card-container a,
-.event-card-container a:visited {
-  color: black;
-  text-decoration: none;
-}
-
 .event-card-header {
   padding: 8px;
-  background-color: darkblue;
+  background-color: var(--primary-dark-color);
   color: whitesmoke;
   font-weight: bold;
   font-size: 20px;

@@ -13,6 +13,13 @@
  *= require_tree .
  *= require_self
  */
+ :root {
+  --primary-dark-color: darkblue;
+  --secondary-dark-color: rgb(0, 88, 170);
+  --primary-light-color: whitesmoke;
+  --secondary-light-color: rgb(202, 199, 199);
+  --accent-color: rgb(37, 149, 253);
+}
 
 * {
   margin: 0px;
@@ -25,7 +32,7 @@ body {
   display: flex;
   height: 100vh;
   flex-direction: column;
-  background-color: whitesmoke;
+  background-color: var(--secondary-light-color);
 }
 
 main {
@@ -41,12 +48,12 @@ nav {
   padding: 12px 24px;
   display: flex;
   justify-content: space-between;
-  background-color: darkblue;
-  color: whitesmoke;
+  background-color: var(--primary-dark-color);
+  color: var(--primary-light-color);;
 }
 
 nav a {
-  color: whitesmoke;
+  color: var(--primary-light-color);
   text-decoration: none;
 }
 
@@ -72,8 +79,13 @@ nav .right {
 .flash-message {
   padding: 12px;
   text-align: center;
-  color: whitesmoke;
+  color: var(--primary-light-color);
   font-weight: bold;
+}
+
+a, a:visited, a:hover, a:active {
+  text-decoration: none;
+  color: inherit;
 }
 
 .notice {
@@ -84,48 +96,38 @@ nav .right {
   background-color: red;
 }
 
-a {
-  text-decoration: none;
-}
-
 .bordered {
-  border: 2px solid darkblue;
+  border: 2px solid var(--primary-dark-color);;
   border-radius: 5px;
-  padding: 8px;
 }
 
 .padded-md {
   padding: 8px;
 }
 
-button,
-input[type=submit] {
-  font-size: 16px;
-  padding: 8px 10px;
-}
-
-.button-sm,
-input[type=submit].button-sm {
-  font-size: 14px;
-  padding: 4px 8px;
-}
-
-.button-sm,
-input[type=submit].button-sm {
-  font-size: 14px;
-  padding: 4px 8px;
+.padded-sm {
+  padding: 4px;
 }
 
 button,
 input[type=submit] {
   font-size: 16px;
   padding: 8px 10px;
+  background-color: var(--primary-light-color);
+}
+
+.button-sm,
+input[type=submit].button-sm {
+  font-size: 14px;
+  padding: 4px 8px;
+  background-color: var(--primary-light-color);
 }
 
 .button-xsm,
 input[type=submit].button-xsm {
   font-size: 12px;
   padding: 2px 4px;
+  background-color: var(--primary-light-color);
 }
 
 label {
@@ -152,5 +154,5 @@ li {
 }
 
 hr {
-  border: 2px solid darkblue;
+  border: 2px solid var(--primary-dark-color);
 }
