@@ -2,7 +2,8 @@ class EventAttendanceController < ApplicationController
   before_action :authenticate_user!, except: [:index]
 
   def create
-    user = attending_user(params[:email])
+    debugger
+    user = attending_user(params[:event_attendance][:email])
 
     if user.nil?
       flash[:alert] = 'User not found'
