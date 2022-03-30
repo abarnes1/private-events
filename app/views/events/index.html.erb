@@ -4,6 +4,5 @@
   <%= button_tag 'Create New Event', type: 'button', class: 'stackable-md bordered' %>
 <% end %>
 
-<%= render partial: 'event_card_list', locals: { title: 'Upcoming Events', events: @events.future.public_visible } %>
-<%= render partial: 'event_card_list', locals: { title: 'Past Events', events: @events.past.public_visible } %>
-
+<%= render partial: 'event_card_list', locals: { title: 'Upcoming Events', events: @events.future.public_visible.earliest_first } %>
+<%= render partial: 'event_card_list', locals: { title: 'Past Events', events: @events.past.public_visible.latest_first } %>

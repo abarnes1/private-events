@@ -4,8 +4,8 @@
   <%= button_tag 'Create New Event', type: 'button', class: 'stackable-md bordered' %>
 <% end %>
 
-<%= render partial: 'events/event_card_list', locals: { title: 'Upcoming Events', events: @user.created_events.future } %>
-<%= render partial: 'events/event_card_list', locals: { title: 'Past Events', events: @user.created_events.past } %>
+<%= render partial: 'events/event_card_list', locals: { title: 'Upcoming Events', events: @user.created_events.future.earliest_first } %>
+<%= render partial: 'events/event_card_list', locals: { title: 'Past Events', events: @user.created_events.past.latest_first } %>
 
 <hr class='stackable-sm'>
 
@@ -14,5 +14,5 @@
 <hr class='stackable-sm'>
 
 <h2 class='stackable-md'>My Event Attendance</h2>
-<%= render partial: 'events/event_card_mini_list', locals: { title: 'Upcoming Events', events: @user.attended_events.future } %>
-<%= render partial: 'events/event_card_mini_list', locals: { title: 'Past Events', events: @user.attended_events.past } %>
+<%= render partial: 'events/event_card_mini_list', locals: { title: 'Upcoming Events', events: @user.attended_events.future.earliest_first } %>
+<%= render partial: 'events/event_card_mini_list', locals: { title: 'Past Events', events: @user.attended_events.past.latest_first } %>
