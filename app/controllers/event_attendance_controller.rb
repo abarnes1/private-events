@@ -4,8 +4,8 @@ class EventAttendanceController < ApplicationController
   def create
     user = attending_user(params[:event_attendance][:email])
 
-    if user.nil?
-      flash[:alert] = 'User not found'
+    if user.nil? || user == current_user
+      flash[:alert] = 'Invalid user'
       redirect_to event_path(params[:event_attendance][:event_id])
       return
     end
