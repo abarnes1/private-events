@@ -5,7 +5,7 @@
   <% end %>
 <% end %>
 
-<%= form_with model: event, class: 'event-form bordered' do |form| %>
+<%= form_with model: event, class: 'event-form bordered padded-md' do |form| %>
   <%= form.label :name %>
   <br>
   <%= form.text_field :name, class: 'stackable-sm full-width' %>
@@ -29,5 +29,5 @@
     <%= form.radio_button :private, true %>
   </div>
   
-  <%= form.button form_submit_text(event), type: "submit" %>
+  <%= form.button form_submit_text(event), type: "submit", class: 'bordered' %>
 <% end %>

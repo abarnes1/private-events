@@ -1,6 +1,6 @@
-<div class="event-card">
+<div class="event-card bordered">
   <%= link_to event_path(event) do %>
-    <div class="event-card-header">
+    <div class="event-card-header padded-md">
       <%= event.name %><%= ' - (private)' if event.private? %> 
     </div>
 
