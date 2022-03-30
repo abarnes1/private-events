@@ -76,6 +76,11 @@ nav .right {
   list-style: none;
 }
 
+footer {
+  display: flex;
+  justify-content: center;
+}
+
 .flash-message {
   padding: 12px;
   text-align: center;
