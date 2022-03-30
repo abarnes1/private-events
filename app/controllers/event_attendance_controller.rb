@@ -2,7 +2,6 @@ class EventAttendanceController < ApplicationController
   before_action :authenticate_user!, except: [:index]
 
   def create
-    debugger
     user = attending_user(params[:event_attendance][:email])
 
     if user.nil?
