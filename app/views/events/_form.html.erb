@@ -1,11 +1,11 @@
-<% if @event.errors.any? %>
+<% if event.errors.any? %>
   Errors:
-  <% @event.errors.each do |error| %>
+  <% event.errors.each do |error| %>
   <p><%= error.full_message %></p>
   <% end %>
 <% end %>
 
-<%= form_with model: @event, class: 'event-form bordered' do |form| %>
+<%= form_with model: event, class: 'event-form bordered' do |form| %>
   <%= form.label :name %>
   <br>
   <%= form.text_field :name, class: 'stackable-sm full-width' %>
@@ -29,5 +29,5 @@
     <%= form.radio_button :private, true %>
   </div>
   
-  <%= form.button "Create", type: "submit" %>
+  <%= form.button form_submit_text(event), type: "submit" %>
 <% end %>
