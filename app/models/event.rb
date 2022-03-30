@@ -17,6 +17,9 @@ class Event < ApplicationRecord
   scope :future, -> { where('date >= ?', Date.today) }
   scope :past, -> { where('date < ?', Date.today) }
 
+  scope :latest_first, -> { order(date: :desc) }
+  scope :earliest_first, -> { order(date: :asc) }
+
   # scopes named public and private not viable as they
   # conflict with ActiveRecord method names
   scope :public_visible, -> { where(private: false) }
