@@ -3,6 +3,7 @@
   <%= form.hidden_field :event_id, value: event_attendance.event_id %>
   <%= form.hidden_field :attendance_status, value: :invited %>
   <%= form.label :email %>
+  <br>
   <%= form.email_field :email, class: 'stackable-sm' %>
   <%= form.button 'Invite', type: 'submit', class: 'button-sm bordered' %>
 <% end %>
