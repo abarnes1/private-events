@@ -161,3 +161,7 @@ li {
 hr {
   border: 2px solid var(--primary-dark-color);
 }
+
+.error {
+  color: red;
+}

@@ -1,9 +1,11 @@
 <% if event.errors.any? %>
-  Errors:
-  <% event.errors.each do |error| %>
-  <p><%= error.full_message %></p>
+  <div class='error'>
+    Errors:
+    <% event.errors.each do |error| %>
+    <p><%= error.full_message %></p>
+    <% end %>
   <% end %>
-<% end %>
+</div>
 
 <%= form_with model: event, class: 'event-form bordered padded-md' do |form| %>
   <%= form.label :name %>
