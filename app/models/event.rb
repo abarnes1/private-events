@@ -6,7 +6,7 @@ class Event < ApplicationRecord
   validates :location, length: { in: 5..100 }, presence: true
 
   belongs_to :creator, class_name: 'User'
-  has_many :event_attendance
+  has_many :event_attendance, dependent: :destroy
 
   has_many :invitations, -> { where(attendance_status: :invited) },
            class_name: 'EventAttendance'
