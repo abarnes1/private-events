@@ -31,7 +31,7 @@ This is the Private Events project created as part of The Odin Project's Ruby on
 
 ### Potential Improvements
 
-* Add styling.  This is currently a functionality only project.
+* Convert layout to a css framework.
 * Add additional user properties like first name, last name, and username.
 * Allow users to edit their profiles and change passwords.
 * Add model and integration tests.
