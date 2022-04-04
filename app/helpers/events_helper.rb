@@ -1,5 +1,5 @@
 module EventsHelper
-  def form_submit_text(event)
+  def event_button_text(event)
     if event.persisted?
       'Save'
     else
